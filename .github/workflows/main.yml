@@ -31,7 +31,7 @@ jobs:
         run: npm install && npm run build
 
       - name: Create zip deployment package
-        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME_FILE }} /home/sai/Documents/ -x *.git*
+        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME_FILE }} .tocheck_network_connection-main.zip -x *.git*
 
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
