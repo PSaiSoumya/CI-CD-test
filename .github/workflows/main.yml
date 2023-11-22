@@ -39,7 +39,6 @@ jobs:
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
           key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
-          port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
 
