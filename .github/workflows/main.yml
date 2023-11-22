@@ -38,7 +38,7 @@ jobs:
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
-          key: ${{ secrets.LIGTHSAIL_KEY }}
+          key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
           target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
 
       - name: Connect to AWS Lightsail, extract file and delete the file
@@ -46,7 +46,7 @@ jobs:
         with:
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
-          key: ${{ secrets.LIGTHSAIL_KEY }}
+          key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
           password: ""
           passphrase: ""
           script: |
