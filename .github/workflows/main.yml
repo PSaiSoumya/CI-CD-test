@@ -35,11 +35,11 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
-          source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
-          host: ${{ secrets.LIGTHSAIL_IP }}
-          username: ${{ secrets.LIGTHSAIL_USERNAME }}
-          key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
-          target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
+          SOURCE: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
+          HOST: ${{ secrets.LIGTHSAIL_IP }}
+          USERNAME: ${{ secrets.LIGTHSAIL_USERNAME }}
+          KEY: ${{ secrets.LIGTHSAIL_SSH_KEY }}
+          TARGET: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
