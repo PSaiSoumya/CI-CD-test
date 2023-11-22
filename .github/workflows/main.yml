@@ -33,13 +33,13 @@ jobs:
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME_FILE }} . /home/sai/Documents -x *.git*
 
       - name: copy file via ssh password
-        uses: appleboy/scp-action@main
+        uses: appleboy/scp-action@master
         with:
+          source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
           key: ${{ secrets.LIGTHSAIL_KEY }}
           port: 22
-          source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
 
       - name: Connect to AWS Lightsail, extract file and delete the file
