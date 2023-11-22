@@ -35,7 +35,7 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
-          source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
+          source:  "."
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
           key: ${{ secrets.LIGTHSAIL_KEY }}
