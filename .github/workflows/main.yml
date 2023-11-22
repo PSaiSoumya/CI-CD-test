@@ -39,8 +39,6 @@ jobs:
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
           key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
-          password: ""
-          passphrase: ""
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
@@ -51,8 +49,6 @@ jobs:
           host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGTHSAIL_USERNAME }}
           key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
-          password: ""
-          passphrase: ""
           port: 22
           script: |
             sudo apt-get install zip unzip
