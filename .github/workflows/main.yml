@@ -53,7 +53,7 @@ jobs:
           port: 22
           script: |
             sudo apt-get install zip unzip
-            sudo unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGTHSAIL_USERNAME }}/${{ secrets.LIGTHSAIL_ROOT_DIR }}
+            sudo unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /var/www/html/${{ secrets.LIGTHSAIL_ROOT_DIR }}
             rm /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
             sudo systemctl restart apache2
       - name: Deployment completed Successfully
