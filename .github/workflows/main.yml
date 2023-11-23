@@ -36,23 +36,23 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.LIGTHSAIL_IP }}
-          username: ${{ secrets.LIGTHSAIL_USERNAME }}
-          key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
+          host: ${{ secrets.LIGHTSAIL_IP }}
+          username: ${{ secrets.LIGHTSAIL_USERNAME }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
-          target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
+          target: "/home/${{ secrets.LIGHTSAIL_USERNAME }}"
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ${{ secrets.LIGTHSAIL_IP }}
-          username: ${{ secrets.LIGTHSAIL_USERNAME }}
-          key: ${{ secrets.LIGTHSAIL_SSH_KEY }}
+          host: ${{ secrets.LIGHTSAIL_IP }}
+          username: ${{ secrets.LIGHTSAIL_USERNAME }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           script: |
             sudo apt-get install zip unzip
-            unzip -q -o /home/${{ secrets.LIGTHSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGTHSAIL_USERNAME }}/${{ secrets.LIGTHSAIL_ROOT_DIR }}
-            rm /home/${{ secrets.LIGTHSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
+            unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ secrets.LIGHTSAIL_ROOT_DIR }}
+            rm /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
             sudo systemctl restart apache2
       - name: Deployment completed Successfully
         run: echo "Deployment completed successfuly"
