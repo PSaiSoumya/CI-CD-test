@@ -2,7 +2,7 @@ name: UI Deployment
 
 # In this section, two enivorment variables are created which will be use in the section of the configuration
 env:
-  DEPLOY_PACKAGE_NAME_FILE: "tocheck_network_connection-main.zip"
+  DEPLOY_PACKAGE_NAME_FILE: "${{ github.sha }}.zip"
   DEPLOY_PACKAGE_NAME: "${{ github.sha }}"
 
 # Controls when the workflow will run
@@ -53,8 +53,7 @@ jobs:
           port: 22
           script: |
             sudo apt-get install zip unzip
-            sudo chmod 777 /var/www/html/tocheck_network_connection-main
-            sudo unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /var/www/html
+            sudo unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGTHSAIL_USERNAME }}/${{ secrets.LIGTHSAIL_ROOT_DIR }}
             rm /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
             sudo systemctl restart apache2
       - name: Deployment completed Successfully
