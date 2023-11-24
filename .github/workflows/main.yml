@@ -41,7 +41,7 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
-          target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
+          target: "/var/www/html"
           timeout: 120s
 
       - name: Connect to AWS Lightsail, extract file and delete the file
