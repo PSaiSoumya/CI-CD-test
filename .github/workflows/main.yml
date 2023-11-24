@@ -34,20 +34,20 @@ jobs:
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME_FILE }} . /home/sai/Documents -x *.git*
 
       - name: copy file via ssh password
-        uses: appleboy/ssh-action@v0.1.4
+        uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.LIGHTSAIL_IP }}
+          host: 54.165.101.140
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "/var/www/html/"
-          timeout: 300s
+          timeout: 120s
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ${{ secrets.LIGHTSAIL_IP }}
+          host: 54.165.101.140
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
