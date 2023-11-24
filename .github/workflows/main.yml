@@ -36,18 +36,18 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: 54.165.101.140
+          host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
-          target: "/var/www/html/"
+          target: "/home/${{ secrets.LIGTHSAIL_USERNAME }}"
           timeout: 120s
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: 54.165.101.140
+          host: ${{ secrets.LIGTHSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
