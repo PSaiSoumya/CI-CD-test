@@ -4,7 +4,6 @@ name: UI Deployment
 env:
   DEPLOY_PACKAGE_NAME_FILE: "${{ github.sha }}.zip"
   DEPLOY_PACKAGE_NAME: "${{ github.sha }}"
-  ROOT_PATH: /home/ubuntu/
 
 # Controls when the workflow will run
 on:
