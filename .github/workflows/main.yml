@@ -37,7 +37,7 @@ jobs:
         with:
           host: ${{ secrets.LIGHTSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "~/www/html"
@@ -47,7 +47,7 @@ jobs:
         with:
           host: ${{ secrets.LIGHTSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           script: |
             sudo apt-get install zip unzip
