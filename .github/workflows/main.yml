@@ -47,7 +47,7 @@ jobs:
         with:
           host: ${{ secrets.LIGHTSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.LIGHTSAIL_KEY }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
             sudo apt-get install zip unzip
             unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ secrets.LIGHTSAIL_ROOT_DIR }}
