@@ -40,7 +40,7 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
-          target: "/home/${{ secrets.LIGHTSAIL_USERNAME }}"
+          target: /var/www/tocheck_network_connection-main
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
@@ -50,7 +50,7 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
             sudo apt-get install zip unzip
-            unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ secrets.LIGHTSAIL_ROOT_DIR }}
+            unzip -q -o /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /var/www/tocheck_network_connection-main/${{ secrets.LIGHTSAIL_ROOT_DIR }}
             rm /home/${{ secrets.LIGHTSAIL_USERNAME }}/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
             sudo systemctl restart apache2
       - name: Deployment completed Successfully
