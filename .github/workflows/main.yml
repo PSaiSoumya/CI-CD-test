@@ -41,6 +41,7 @@ jobs:
           port: 22
           source: ${{ env.DEPLOY_PACKAGE_NAME_FILE }}
           target: "/var/www/tocheck_network_connection-main"
+          timeout: 120s
 
       - name: Connect to AWS Lightsail, extract file and delete the file
         uses: appleboy/ssh-action@v0.1.7
