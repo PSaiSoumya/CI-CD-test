@@ -52,7 +52,7 @@ jobs:
           port: 22
           script: |
             sudo apt-get install zip unzip
-            unzip -q -o /var/www/tocheck_network_connection-main/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /var/www/tocheck_network_connection-main/${{ secrets.LIGHTSAIL_ROOT_DIR }}
+            unzip -q -o /var/www/tocheck_network_connection-main/${{ env.DEPLOY_PACKAGE_NAME_FILE }} -d /var/www/${{ secrets.LIGHTSAIL_ROOT_DIR }}
             rm /var/www/tocheck_network_connection-main/${{ env.DEPLOY_PACKAGE_NAME_FILE }}
             sudo systemctl restart apache2
       - name: Deployment completed Successfully
