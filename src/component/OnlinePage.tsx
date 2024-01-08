@@ -9,7 +9,7 @@ const OnlinePage = () => {
         </h1>
 
         <h5 className="d-flex justify-content-center align-items-center">
-          You are Having internet Access to JIO
+          You are Having internet Access to VI
         </h5>
       </div>
       <div className="d-flex justify-content-center align-items-center">
